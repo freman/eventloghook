@@ -15,8 +15,8 @@ type EventLogHook struct {
 	upstream debug.Log
 }
 
-// NewEventLogHook creates and returns a new EventLogHook wrapped around anything that implements the debug.Log interface
-func NewEventLogHook(logger debug.Log) *EventLogHook {
+// NewHook creates and returns a new EventLogHook wrapped around anything that implements the debug.Log interface
+func NewHook(logger debug.Log) *EventLogHook {
 	return &EventLogHook{upstream: logger}
 }
 
