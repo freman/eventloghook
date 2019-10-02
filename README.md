@@ -5,7 +5,7 @@
 ```go
 import (
   "log/syslog"
-  "github.com/Sirupsen/logrus"
+  "github.com/sirupsen/logrus"
   "github.com/Freman/eventloghook"
   "golang.org/x/sys/windows/svc/eventlog"
 )
