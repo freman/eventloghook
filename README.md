@@ -17,7 +17,7 @@ func main() {
     panic(err)
   }
   defer elog.Close()
-  log.Hooks.Add(NewWinLogHook(elog))
+  log.Hooks.Add(eventloghook.NewHook(elog))
 }
 ```
 
@@ -35,6 +35,6 @@ func main() {
   log       := logrus.New()
   elog = debug.New("Service Name")
   defer elog.Close()
-  log.Hooks.Add(NewWinLogHook(elog))
+  log.Hooks.Add(eventloghook.NewHook(elog))
 }
 ```
