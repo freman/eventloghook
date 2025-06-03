@@ -1,3 +1,4 @@
+//go:build windows
 // +build windows
 
 package eventloghook
@@ -7,16 +8,16 @@ import (
 	"os"
 
 	"github.com/sirupsen/logrus"
-	"golang.org/x/sys/windows/svc/eventlog"
+	"golang.org/x/sys/windows/svc/debug"
 )
 
 // EventLogHook to send logs via windows log.
 type EventLogHook struct {
-	upstream eventlog.Log
+	upstream debug.Log
 }
 
-// NewHook creates and returns a new EventLogHook wrapped around anything that implements the eventlog.Log interface
-func NewHook(logger eventlog.Log) *EventLogHook {
+// NewHook creates and returns a new EventLogHook wrapped around anything that implements the debug.Log interface
+func NewHook(logger debug.Log) *EventLogHook {
 	return &EventLogHook{upstream: logger}
 }
 
