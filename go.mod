@@ -1,6 +1,6 @@
 module github.com/freman/eventloghook
 
-go 1.24.3
+go 1.23.0
 
 require (
 	github.com/sirupsen/logrus v1.9.3

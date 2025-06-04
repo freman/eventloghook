@@ -27,7 +27,7 @@ func TestEventLogAndPrint(t *testing.T) {
 	testTheInterface(t, elog)
 }
 
-func testTheInterface(t *testing.T, l logger) {
+func testTheInterface(t *testing.T, l Logger) {
 	log := logrus.New()
 	log.Hooks.Add(NewHook(l))
 

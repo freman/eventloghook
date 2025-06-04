@@ -12,15 +12,15 @@ import (
 
 // EventLogHook to send logs via windows log.
 type EventLogHook struct {
-	upstream logger
+	upstream Logger
 }
 
-// NewHook creates and returns a new EventLogHook wrapped around anything that implements the logger interface
+// NewHook creates and returns a new EventLogHook wrapped around anything that implements the Logger interface
 // for example:
 // * golang.org/x/sys/windows/svc/eventlog.Log
 // * golang.org/x/sys/windows/svc/debug.Log
-func NewHook(logger logger) *EventLogHook {
-	return &EventLogHook{upstream: logger}
+func NewHook(Logger Logger) *EventLogHook {
+	return &EventLogHook{upstream: Logger}
 }
 
 func (hook *EventLogHook) Fire(entry *logrus.Entry) error {
@@ -40,8 +40,10 @@ func (hook *EventLogHook) Fire(entry *logrus.Entry) error {
 	case logrus.WarnLevel:
 		return hook.upstream.Warning(1, line)
 	case logrus.InfoLevel:
-		return hook.upstream.Info(2, line)
+		return hook.upstream.Info(3, line)
 	case logrus.DebugLevel:
+		return hook.upstream.Info(2, line)
+	case logrus.TraceLevel:
 		return hook.upstream.Info(1, line)
 	default:
 		return nil
