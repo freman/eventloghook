@@ -38,3 +38,13 @@ func main() {
   log.Hooks.Add(eventloghook.NewHook(elog))
 }
 ```
+
+
+## Breaking Changes
+
+* 2025-06-04 - Added support for Trace log level, better late than never.
+Only a concern if you're relying on the event ID for filtering or reporting.
+Changes:
+   * logrus.InfoLevel used to be EID 2 is now EID 3
+   * logrus.DebugLevel used to be EID 1 is now EID 2
+   * logrus.TraceLevel never existed but is now EID 1
