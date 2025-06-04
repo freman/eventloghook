@@ -6,7 +6,7 @@
 import (
   "log/syslog"
   "github.com/sirupsen/logrus"
-  "github.com/Freman/eventloghook"
+  "github.com/freman/eventloghook"
   "golang.org/x/sys/windows/svc/eventlog"
 )
 
@@ -26,8 +26,8 @@ If you want to output to the windows console/terminal - tho why you'd want to do
 ```go
 import (
   "log/syslog"
-  "github.com/Sirupsen/logrus"
-  "github.com/Freman/eventloghook"
+  "github.com/sirupsen/logrus"
+  "github.com/freman/eventloghook"
   "golang.org/x/sys/windows/svc/debug"
 )
 
